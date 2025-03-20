@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Agritoken</title>
+    <link rel="stylesheet" href="AT.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo" onclick="openhome()">
+            <h2>AgriToken</h2>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><button class="login" onclick="openlogin()">Login</button></li>
+            <li><button class="signup" onclick="openreg()">Sign Up</button></li>
+        </ul>
+    </div>
+
+    <div class="main" id="home">
+        <div class="home">
+            <h1 style="margin-bottom: 0px;">AgriToken</h1>
+            <h4 style="color:white; font-size: medium; font-family: none; margin-bottom: 50px;">Revolutionizing Farm Investments with Blockchain</h4>
+            <button class="start" onclick="openreg()">Get Started</button>
+        </div>
+        <div class="cardholder">
+            <div class="card" onclick="openhelp()">
+                <img src="card1_seed.png" alt="">
+                <h2>Support Farmers</h2>
+            </div>
+            <div class="card" onclick="opencard(1)">
+                <img src="img_wallet.jpg" alt="">
+                <h2>Buy Farm Shares</h2>
+            </div>
+            <div class="card" onclick="opencard(2)">
+                <img src="img_sell2.jpg" alt="">
+                <h2>Sell Farm Shares</h2>
+            </div>
+            <div class="card" onclick="opencard(3)">
+                <img src="img_portfolio.jpg" alt="">
+                <h2>My Portfolio</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="loginform" id="logform">
+        <div class="top">
+            <h1 style="color: green; margin: 20px;">Login</h1>
+            <button class="cross" onclick="closelogin()">X</button>
+        </div>
+        <div class="form" id="form1">
+            <form id="logininfoform" action="none" method="post">
+                <table style="border-spacing: 40px;"> 
+                    <tr>
+                        <th>Enter User ID :</th>
+                        <td><input type="text" name="uid"></td>
+                    </tr>
+                    <tr>
+                        <th>Enter Password :</th>
+                        <td><input type="password" name="pass"></td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Log In" class="submit" onclick="return checklogin()">
+                        </td>
+                    </tr>
+                </table>                
+            </form>
+            <div class="logo">
+                <h2 style="font-size: xx-large;">AgriToken</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="regform" id="regform">
+        <div class="top" style="margin-bottom: 10px;">
+            <h1 style="color: green; margin: 20px;">Sign Up</h1>
+            <button class="cross" onclick="closereg()">X</button>
+        </div>
+        <div class="form" id="form2">
+            <form id="reginfoform" action="none" method="post">
+                <table style="border-spacing: 20px;"> 
+                    <tr>
+                        <th>Enter Email-Id</th>
+                        <th>:</th>
+                        <td><input type="email" id="email"></td>
+                    </tr>
+                    <tr>
+                        <th>Create User ID</th>
+                        <th>:</th>
+                        <td><input type="text" id="user"></td>
+                    </tr>
+                    <tr>
+                        <th>Enter Phone</th>
+                        <th>:</th>
+                        <td><input type="number" id="phn"></td>
+                    </tr>
+                    <tr>
+                        <th>Create Password</th>
+                        <th>:</th>
+                        <td><input type="password" id="pass1"></td>
+                    </tr>
+                    <tr>
+                        <th>Confirm Password</th>
+                        <th>:</th>
+                        <td><input type="password" id="pass2"></td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td colspan="3" style="color: green;">
+                            <input type="checkbox" id="cbox"> I agree to the Terms & Conditions.
+                        </td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td colspan="3">
+                            <button class="submit" onclick="return checkreg()">Sign Up</button>
+                        </td>
+                    </tr>
+                </table>                
+            </form>
+            <div class="logo">
+                <h2 style="font-size: xx-large;">AgriToken</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="help" id="fhelp">
+        <div class="top">
+            <h1 style="color: green; margin: 20px;">Farmers Support</h1>
+            <button class="cross" onclick="closehelp()">X</button>
+        </div>
+        <div class="form" id="farmers">
+            <form id="dono" action="none" method="post">
+                <table style="border-spacing: 40px;"> 
+                    <tr>
+                        <th>Enter UPI ID :</th>
+                        <td><input type="text" id="uiddon"></td>
+                    </tr>
+                    <tr>
+                        <th>Enter Donation Amount:</th>
+                        <td><input type="number" id="donate"></td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" class="submit" onclick="return checkdonate()" value="Donate">
+                        </td>
+                    </tr>
+                </table>                
+            </form>
+            <div class="logo">
+                <h2 style="font-size: xx-large;">AgriToken</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="buy" id="buyit">
+        <div class="top">
+            <h1 style="color: green; margin: 20px;">BUY</h1>
+            <button class="cross" onclick="closeit(1)">X</button>
+        </div>
+        <div class="shares">
+            <img src="wheat.jpeg" style="height: 70px; width: 70px;" alt="">
+            <h5>Rice Farms (AP, India)</h5>
+            <h4>Rs.200/share</h4>
+            <button class="buy1" onclick="buyshare(0)">Buy x1</button>
+        </div>
+        <div class="shares">
+            <img src="corn.jpg" style="height: 70px; width: 70px;" alt="">
+            <h5>Corn Farms (AP, India)</h5>
+            <h4>Rs.150/share</h4>
+            <button class="buy1" onclick="buyshare(1)">Buy x1</button>
+        </div>
+        <div class="shares">
+            <img src="apple.jpg" style="height: 70px; width: 70px;" alt="">
+            <h5>Apple Farms (AP, India)</h5>
+            <h4>Rs.450/share</h4>
+            <button class="buy1" onclick="buyshare(2)">Buy x1</button>
+        </div>
+        <div class="logo">
+            <h2 style="font-size: xx-large;">AgriToken</h2>
+        </div>
+    </div>
+
+    <div class="sell" id="sellit">
+        <div class="top">
+            <h1 style="color: green; margin: 20px;">SELL</h1>
+            <button class="cross" onclick="closeit(2)">X</button>
+        </div>
+        <h1 style="color: green;">
+            No Shares To Display.
+        </h1>
+        <div class="logo">
+            <h2 style="font-size: xx-large;">AgriToken</h2>
+        </div>
+    </div>
+    <div class="portfolio" id="folio">
+        <div class="top">
+            <h1 style="color: green; margin: 20px;">PORTFOLIO</h1>
+            <button class="cross" onclick="closeit(3)">X</button>
+        </div>
+        <div class="portf" id="placehere">
+            <h3 style="margin-bottom: 0px;" id="curvalue">Current Portfolio Value: <h2>Rs.0</h2></h3>
+            <h5 style="margin-top: 0px; margin-bottom: 0px;" id="invamt">Invested Amount: <h4 style="margin-top: 0px;">Rs.0</h4></h5>
+        </div>
+        <div class="portf" id="donoplace">
+            <h3 style="margin-bottom: 0px;" id="curvalue">Total Amount Donated: <h2>Rs.0</h2></h3>
+        </div>
+    </div>
+    <script src="AT.js"></script>    
+</body>
+</html>
